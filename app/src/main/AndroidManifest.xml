@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.websarva.wings.android.bocian">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/activityName_extension"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
+        <activity android:name="com.websarva.wings.android.bocian.activity.ExtensionActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".activity.BookingConActivity">
+        </activity>
+
+        <activity android:name=".activity.ScheduleActivity">
+        </activity>
+
+        <activity android:name=".activity.UsageHisActivity">
+        </activity>
+
+        <activity
+            android:name="com.websarva.wings.android.bocian.activity.MenuActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar">
+
+        </activity>
+
+        <activity
+            android:name="com.websarva.wings.android.bocian.activity.NewReservationActivity"
+            android:label="@string/new_reservation">
+
+
+        </activity>
+
+        <activity
+            android:name="com.websarva.wings.android.bocian.activity.AddMemberActivity"
+            android:label="@string/add_employee"></activity>
+
+        <activity
+            android:name="com.websarva.wings.android.bocian.activity.AddCustomerActivity"
+            android:label="@string/add_customer"></activity>
+
+        <activity
+            android:name="com.websarva.wings.android.bocian.activity.EditCompanyActivity"
+            android:label="@string/edit_company" />
+
+        <activity
+            android:name="com.websarva.wings.android.bocian.activity.ParticipantsActivity"
+            android:label="@string/participant"></activity>
+
+        <activity
+            android:name="com.websarva.wings.android.bocian.activity.FixturesActivity"
+            android:label="@string/fixtures"></activity>
+
+        <activity
+            android:name="com.websarva.wings.android.bocian.activity.SelectedCompanyActivity"
+            android:label="@string/selected_company"></activity>
+
+    </application>
+
+</manifest>
