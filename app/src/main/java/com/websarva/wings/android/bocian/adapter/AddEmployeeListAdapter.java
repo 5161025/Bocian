@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import com.websarva.wings.android.bocian.listItem.AddEmployeeListItem;
@@ -56,11 +57,9 @@ public class AddEmployeeListAdapter extends BaseAdapter {    // 自作のadapter
         ((TextView)convertView.findViewById(R.id.post)).setText(item.getPost());
         CheckBox checkBox = convertView.findViewById(R.id.checkbox);
         final AddEmployeeListItem fitem = item;
-        checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                fitem.setChecked(isChecked);
-            }
+        checkBox.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            fitem.setChecked(isChecked);
+            ((ListView) parent).performItemClick(buttonView, position, R.id.checkbox);
         });
         checkBox.setChecked(item.isChecked());
         return convertView;

@@ -27,34 +27,27 @@
             android:textSize="20sp" />
 
         <ImageButton
-            android:id="@+id/imageButton"
+            android:id="@+id/edit"
             android:layout_width="wrap_content"
             android:layout_height="48dp"
             android:layout_alignParentTop="true"
-            android:layout_marginStart="-1dp"
-            android:layout_marginLeft="-1dp"
-            android:layout_marginTop="0dp"
             android:layout_toEndOf="@+id/name"
-            android:layout_toRightOf="@+id/name"
             android:background="@null"
             android:scaleX="0.7"
             android:scaleY="0.7"
             app:srcCompat="@drawable/edit" />
 
         <ImageButton
-            android:id="@+id/imageButton4"
+            android:id="@+id/delete"
             android:layout_width="wrap_content"
             android:layout_height="48dp"
             android:layout_alignParentTop="true"
-            android:layout_marginStart="14dp"
             android:layout_marginLeft="10dp"
-            android:layout_toEndOf="@+id/imageButton"
-            android:layout_toRightOf="@+id/imageButton"
+            android:layout_toEndOf="@+id/edit"
             android:background="@null"
             android:scaleX="0.7"
             android:scaleY="0.7"
             app:srcCompat="@drawable/delete" />
-
 
     </RelativeLayout>
 

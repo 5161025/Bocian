@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragment.AdominLoginFragment">
+    tools:context=".fragment.AdminLoginFragment">
 
     <ImageView
         android:id="@+id/adominlogin_img_vi_adomin"

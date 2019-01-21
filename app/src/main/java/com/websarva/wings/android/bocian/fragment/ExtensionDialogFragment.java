@@ -20,12 +20,12 @@ public class ExtensionDialogFragment extends DialogFragment {
         Spinner hour = getActivity().findViewById(R.id.extension_spinar_hour);
         String hourSelectedItem = hour.getSelectedItem().toString();
         Spinner minutes = getActivity().findViewById(R.id.extension_spinar_minutes);
-        String minutesSlectedItem = minutes.getSelectedItem().toString();
+        String minutesSelectedItem = minutes.getSelectedItem().toString();
 
         //ダイアログのタイトルをセット
         builder.setTitle("延長確認");
         //ダイアログのメッセージをセット
-        builder.setMessage(hourSelectedItem + "時" + minutesSlectedItem + "分" + "まで延長します。よろしいですか？");
+        builder.setMessage(hourSelectedItem + "時" + minutesSelectedItem + "分" + "まで延長します。よろしいですか？");
 
 
         builder.setPositiveButton(R.string.bt_confirm, new DialogInterface.OnClickListener() {

@@ -5,10 +5,13 @@ import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
+import android.widget.ListView;
 import android.widget.TextView;
 
-import com.websarva.wings.android.bocian.listItem.AddCompanyListItem;
 import com.websarva.wings.android.bocian.R;
+import com.websarva.wings.android.bocian.listItem.AddCompanyListItem;
 
 import java.util.List;
 
@@ -50,6 +53,8 @@ public class AddCompanyListAdapter extends BaseAdapter {    // 自作のadapter�
         }
         ((TextView)convertView.findViewById(R.id.name)).setText(item.getName());
         ((TextView)convertView.findViewById(R.id.count)).setText(item.getCount());
+        TextView count = convertView.findViewById(R.id.count);
+        count.setOnClickListener(v -> ((ListView) parent).performItemClick(v, position, R.id.count));
         return convertView;
     }
 }

@@ -6,6 +6,7 @@ import android.widget.ListView;
 
 import com.websarva.wings.android.bocian.R;
 import com.websarva.wings.android.bocian.adapter.FixturesListAdapter;
+import com.websarva.wings.android.bocian.beans.Constants;
 import com.websarva.wings.android.bocian.fragment.AddFixturesDialogFragment;
 import com.websarva.wings.android.bocian.listItem.FixturesListItem;
 
@@ -13,9 +14,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+// 備品確認画面
 public class FixturesActivity extends AppCompatActivity {
 
-    public static final int ZERO = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,7 +28,7 @@ public class FixturesActivity extends AppCompatActivity {
 
         List<FixturesListItem> data = new ArrayList<>(); // アダプタのdata部分のリストを作成
         // インスタンス生成してセットしている
-        for (int i = ZERO; i < names.length; i++) {
+        for (int i = Constants.Num.ZERO; i < names.length; i++) {
             FixturesListItem item = new FixturesListItem();
             item.setId((new Random()).nextLong());  // 別に乱数にしなくてもよい
             item.setName(names[i]);
@@ -36,10 +37,10 @@ public class FixturesActivity extends AppCompatActivity {
         }
         // 自身のアクティビティ、データ、レイアウトを指定
         FixturesListAdapter adapter = new FixturesListAdapter(FixturesActivity.this, data, R.layout.fixtures_list_item);
-        ListView listView = findViewById(R.id.list); // レイアウト
+        ListView listView = findViewById(R.id.Fixtures_list_v_fixtures); // レイアウト
         listView.setAdapter(adapter);
 
-        findViewById(R.id.imageView2).setOnClickListener(view -> {
+        findViewById(R.id.Fixtures_img_bt_plus).setOnClickListener(view -> {
             // 備品追加ダイアログの出現
             AddFixturesDialogFragment dialog = new AddFixturesDialogFragment();
             getSupportFragmentManager();
@@ -47,8 +48,8 @@ public class FixturesActivity extends AppCompatActivity {
         });
 
         // この画面の終了（キャンセル）
-        findViewById(R.id.button2).setOnClickListener(view -> { finish(); });
+        findViewById(R.id.Fixtures_bt_cancel).setOnClickListener(view -> { finish(); });
         // この画面の終了（確定）
-        findViewById(R.id.button4).setOnClickListener(view -> { finish(); });
+        findViewById(R.id.Fixtures_bt_confirm).setOnClickListener(view -> { finish(); });
     }
 }

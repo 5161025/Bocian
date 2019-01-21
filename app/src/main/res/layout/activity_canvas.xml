@@ -30,7 +30,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="2018/09/3(月)" />
+            android:text="2018/08/30(木)" />
 
         <ImageButton
             android:id="@+id/schdule_bt_next"
@@ -105,7 +105,7 @@
 
             <view
                 android:id="@+id/schdule_vi_sv"
-                class="com.websarva.wings.android.bociantest.activity.ScheduleCanvas"
+                class="com.websarva.wings.android.bocian.beans.ScheduleView"
                 android:layout_width="match_parent"
                 android:layout_height="1370dp" />
         </LinearLayout>

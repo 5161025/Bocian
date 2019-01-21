@@ -1,5 +1,38 @@
+
 <resources>
-    // 杉原
+    <string name="app_name">Bocian</string>
+    <!--木原-->
+    <string name="useHistoryActivity">利用履歴画面</string>
+    <string-array name="dateRange">
+        <item>月を選択してください</item>
+        <item>2018年4月</item>
+        <item>2018年5月</item>
+        <item>2018年6月</item>
+        <item>2018年7月</item>
+        <item>2018年8月</item>
+        <item>2018年9月</item>
+    </string-array>
+    <!--斎藤-->
+    <string name="bookingConActivity">予約確認画面</string>
+    <string-array name="purpose">
+        <item>目的を選択してください</item>
+        <item>重役会議</item>
+        <item>連絡会議</item>
+        <item>スケジューリング会議</item>
+        <item>アイデア出し会議</item>
+        <item>問題解決会議</item>
+        <item>問題発見会議</item>
+        <item>コーチング会議</item>
+        <item>プレゼンテーション</item>
+        <item>研修・セミナー</item>
+        <item>各種社内イベント</item>
+        <item>会社説明会</item>
+        <item>筆記試験</item>
+        <item>面接</item>
+        <item>営業</item>
+        <item>打ち合わせ</item>
+    </string-array>
+    <!--杉原-->
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="nav_header_title">Android Studio</string>
@@ -22,8 +55,8 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
-    // 小倉
-    <string name="activityName_extension">利用時間延長</string>
+    <!--小倉-->
+    <string name="extensionActivity">予約延長画面</string>
     <string name="tx_guide_msg_1">まもなく終了時刻です。</string>
     <string name="tx_guide_msg_2">延長時刻を入力してください。</string>
     <string name="tx_end_time">予約終了時刻</string>
@@ -53,11 +86,11 @@
         <item>45</item>
     </string-array>
 
-    // 佐竹
-    <string name="app_name">新規予約画面</string>
-    <string name="add_company">参加者追加画面</string>
-    <string name="add_customer">参加者追加画面</string>
-    <string name="add_employee">参加者追加画面</string>
+    <!--佐竹-->
+
+
+
+    <string name="add_member">参加者追加画面</string>
     <string name="participant">参加者確認画面</string>
     <string name="add_fixtures">備品追加画面</string>
     <string name="fixtures">備品確認画面</string>
@@ -65,7 +98,8 @@
     <string name="edit_company">会社編集画面</string>
     <string name="edit_reservation">予約編集画面</string>
     <string name="new_reservation">新規予約画面</string>
-    <string name="selected_company">編集会社選択画面</string>
+    <string name="selected_company">編集企業選択画面</string>
+    <string name="scheduleActivity">スケジュール画面</string>
     <string name="st1">目的</string>
     <string name="st2">利用日</string>
     <string name="st3">利用開始時刻</string>
@@ -81,27 +115,6 @@
         <item>会議室C</item>
         <item>特別会議室</item>
     </string-array>
-
-
-    <string-array name="目的">
-        <item>使用目的</item>
-        <item>重役会議</item>
-        <item>連絡会議</item>
-        <item>スケジューリング会議</item>
-        <item>アイデア出し会議</item>
-        <item>問題解決会議</item>
-        <item>問題発見会議</item>
-        <item>コーチング会議</item>
-        <item>プレゼンテーション</item>
-        <item>研修・セミナー</item>
-        <item>各種社内会議</item>
-        <item>会社説明会</item>
-        <item>筆記試験</item>
-        <item>面接</item>
-        <item>営業</item>
-        <item>打ち合わせ</item>
-    </string-array>
-
     <string-array name="hourList">
         <item>9</item>
         <item>10</item>
@@ -123,8 +136,41 @@
         <item>30</item>
         <item>45</item>
     </string-array>
-
-
+    <string-array name="社内社外">
+        <item>社内</item>
+        <item>社外</item>
+    </string-array>
+    <string-array name="num">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+    </string-array>
+    <!--DBから取り出す系-->
+    <string-array name="目的">
+        <item>使用目的</item>
+        <item>重役会議</item>
+        <item>連絡会議</item>
+        <item>スケジューリング会議</item>
+        <item>アイデア出し会議</item>
+        <item>問題解決会議</item>
+        <item>問題発見会議</item>
+        <item>コーチング会議</item>
+        <item>プレゼンテーション</item>
+        <item>研修・セミナー</item>
+        <item>各種社内会議</item>
+        <item>会社説明会</item>
+        <item>筆記試験</item>
+        <item>面接</item>
+        <item>営業</item>
+        <item>打ち合わせ</item>
+    </string-array>
     <string-array name="nameList">
         <item>赤坂 佑介</item>
         <item>尾張 佳世子</item>
@@ -228,7 +274,6 @@
         <item>第二課</item>
         <item>第三課</item>
     </string-array>
-
     <string-array name="customerNameList">
         <item>吉松 正博</item>
         <item>藁科 慶</item>
@@ -268,7 +313,6 @@
         <item>一般社員</item>
         <item>主任</item>
     </string-array>
-
     <string-array name="post">
         <item>取締役会長</item>
         <item>代表取締役</item>
@@ -280,10 +324,6 @@
         <item>主任</item>
         <item>一般社員</item>
     </string-array>
-    <string-array name="社内社外">
-        <item>社内</item>
-        <item>社外</item>
-    </string-array>
     <string-array name="companyList">
         <item>株式会社API</item>
         <item>株式会社APEX</item>
@@ -291,14 +331,6 @@
         <item>株式会社TWW</item>
         <item>日本製造株式会社</item>
         <item>日本IT株式会社</item>
-    </string-array>
-    <string-array name="countList">
-        <item>6人</item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
     </string-array>
     <string-array name="fixtures">
         <item>テーブル</item>
@@ -309,23 +341,20 @@
         <item>ホワイトボード</item>
         <item>ホワイトボードマーカー</item>
     </string-array>
+    <!--処理で計算する系-->
+    <string-array name="countList">
+        <item>6人</item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+    </string-array>
     <string-array name="fixtures2">
         <item>テーブル</item>
         <item>プロジェクター</item>
         <item>ホワイトボード</item>
         <item>ホワイトボードマーカー</item>
-    </string-array>
-    <string-array name="num">
-        <item>1</item>
-        <item>2</item>
-        <item>3</item>
-        <item>4</item>
-        <item>5</item>
-        <item>6</item>
-        <item>7</item>
-        <item>8</item>
-        <item>9</item>
-        <item>10</item>
     </string-array>
     <string-array name="fixturesNum">
         <item>3個</item>
@@ -333,15 +362,4 @@
         <item>2個</item>
         <item>3個</item>
     </string-array>
-
-    <string-array name="daterange">
-        <item>月を選択してください</item>
-        <item>2018年4月</item>
-        <item>2018年5月</item>
-        <item>2018年6月</item>
-        <item>2018年7月</item>
-        <item>2018年8月</item>
-        <item>2018年9月</item>
-    </string-array>
-
 </resources>

@@ -10,6 +10,7 @@ import com.websarva.wings.android.bocian.R;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+// 予約確認画面
 public class BookingConActivity extends AppCompatActivity {
 
     // newNoodleの1-30が追加されたかどうかのフラグ true:追加された false:まだ追加されてない
@@ -53,7 +54,7 @@ public class BookingConActivity extends AppCompatActivity {
          */
         SimpleAdapter simpleAdapter = new SimpleAdapter(this,
                 listData, // 使用するデータ
-                R.layout.book_custom_list_layout, // 自作したレイアウト
+                R.layout.booking_con_list_item, // 自作したレイアウト
                 new String[]{"date", "plans", "time", "area", "name"}, // どの項目を
                 new int[]{R.id.bookingCon_tv_date, R.id.bookingCon_tv_plans, R.id.bookingCon_tv_time,R.id.bookingCon_tv_area, R.id.bookingCon_tv_name} // どのidの項目に入れるか
         );

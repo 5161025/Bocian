@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.websarva.wings.android.bocian.activity.BookingConActivity">
+    tools:context=".activity.BookingConActivity">
 
     <View
         android:id="@+id/bookingCon_vi_back"
@@ -25,7 +25,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:background="@drawable/borderspinner"
-        android:entries="@array/目的"
+        android:entries="@array/purpose"
         app:layout_constraintBottom_toTopOf="@+id/bookingCon_gline_first"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

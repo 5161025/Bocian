@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import com.websarva.wings.android.bocian.listItem.AddCustomerListItem;
@@ -58,6 +59,7 @@ public class AddCustomerListAdapter extends BaseAdapter {    // 自作のadapter
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 fitem.setChecked(isChecked);
+                ((ListView) parent).performItemClick(buttonView, position, R.id.checkbox);
             }
         });
         checkBox.setChecked(item.isChecked());

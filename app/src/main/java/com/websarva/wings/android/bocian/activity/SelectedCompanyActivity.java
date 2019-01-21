@@ -7,15 +7,15 @@ import android.widget.ListView;
 
 import com.websarva.wings.android.bocian.R;
 import com.websarva.wings.android.bocian.adapter.SelectedCompanyListAdapter;
+import com.websarva.wings.android.bocian.beans.Constants;
 import com.websarva.wings.android.bocian.listItem.SelectedCompanyListItem;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-
+// 編集企業選択画面
 public class SelectedCompanyActivity extends AppCompatActivity {
-    public static final int ZERO = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,7 +26,7 @@ public class SelectedCompanyActivity extends AppCompatActivity {
 
         List<SelectedCompanyListItem> data = new ArrayList<>(); // アダプタのdata部分のリストを作成
         // インスタンス生成してセットしている
-        for (int i = ZERO; i < names.length; i++) {
+        for (int i = Constants.Num.ZERO; i < names.length; i++) {
             SelectedCompanyListItem item = new SelectedCompanyListItem();
             item.setId((new Random()).nextLong());  // 別に乱数にしなくてもよい
             item.setName(names[i]);
@@ -34,11 +34,11 @@ public class SelectedCompanyActivity extends AppCompatActivity {
         }
         // 自身のアクティビティ、データ、レイアウトを指定
         SelectedCompanyListAdapter adapter = new SelectedCompanyListAdapter(SelectedCompanyActivity.this, data, R.layout.selected_company_list_item);
-        ListView listView = findViewById(R.id.list); // レイアウト
+        ListView listView = findViewById(R.id.selectedCompany_list_vi_company); // レイアウト
         listView.setAdapter(adapter);
 
         // 企業登録画面を起動
-        findViewById(R.id.button4).setOnClickListener(view -> {
+        findViewById(R.id.selectedCompany_img_bt_plus).setOnClickListener(view -> {
             Intent intent = new Intent(SelectedCompanyActivity.this, EditCompanyActivity.class);
             startActivity(intent);
         });
@@ -48,6 +48,6 @@ public class SelectedCompanyActivity extends AppCompatActivity {
         // 削除処理を起動（リスト）
 
         // この画面の終了（戻る）
-        findViewById(R.id.button3).setOnClickListener( view -> { finish(); });
+        findViewById(R.id.selectedCompany_bt_back).setOnClickListener( view -> { finish(); });
     }
 }

@@ -1,20 +1,23 @@
 package com.websarva.wings.android.bocian.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
-import com.websarva.wings.android.bocian.R;
+import com.websarva.wings.android.bocian.*;
 import com.websarva.wings.android.bocian.beans.EndDrawerToggle;
-import com.websarva.wings.android.bocian.fragment.AdominLoginFragment;
+import com.websarva.wings.android.bocian.fragment.AdminLoginFragment;
 import com.websarva.wings.android.bocian.fragment.FirstFragment;
 import com.websarva.wings.android.bocian.fragment.SecondFragment;
 
+// ハンバーガーメニューテスト画面（テスト）
 public class MenuActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -76,35 +79,30 @@ public class MenuActivity extends AppCompatActivity
         switch (itemId) {
             case R.id.nav_reservation:              // 新規予約画面
                 fragment = new FirstFragment();
-                setContentView(R.layout.fragment_first);
                 break;
             case R.id.nav_confirm:                  // 予約確認画面
                 fragment = new SecondFragment();
-                setContentView(R.layout.fragment_second);
                 break;
             case R.id.nav_schdule:                  // スケジュール画面
                 fragment = new FirstFragment();
-                setContentView(R.layout.fragment_second);
                 break;
             case R.id.nav_company:                  // 会社情報編集画面
                 fragment = new SecondFragment();
-                setContentView(R.layout.fragment_second);
                 break;
             case R.id.nav_history:                  // 利用履歴画面
                 fragment = new FirstFragment();
-                setContentView(R.layout.fragment_second);
                 break;
             case R.id.nav_login:                    // ログイン画面   ログアウト時との違い
-                fragment = new AdominLoginFragment();
-                setContentView(R.layout.fragment_adomin_login);
+                fragment = new AdminLoginFragment();
                 break;
         }
 
         // フラグメントを置き換える
         if (fragment != null) {
-        //    FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-        //    ft.replace(R.id.content_frame, fragment);
-        //    ft.commit();
+            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+            ft.replace(R.id.content_frame, fragment);
+            ft.commit();
+            getIntent().addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
         }
 
         // メニューを閉じる

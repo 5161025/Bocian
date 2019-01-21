@@ -12,7 +12,7 @@
     android:scrollbars="vertical">
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/addCustomer_ed_tv_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
@@ -30,7 +30,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/addCustomer_bt_search"
         android:layout_width="164dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="128dp"
@@ -42,20 +42,20 @@
         android:text="検索"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText" />
+        app:layout_constraintTop_toBottomOf="@+id/addCustomer_ed_tv_name" />
 
     <LinearLayout
-        android:id="@+id/linearLayout3"
+        android:id="@+id/LinearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="8dp"
         android:layout_marginStart="8dp"
         android:orientation="horizontal"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button">
+        app:layout_constraintTop_toBottomOf="@+id/addCustomer_bt_search">
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/addCustomer_tv_selecting"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
@@ -67,13 +67,12 @@
             android:textSize="20sp" />
 
         <TextView
-            android:id="@+id/textView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1" />
 
         <ImageButton
-            android:id="@+id/button2"
+            android:id="@+id/addCustomer_img_bt_add_to"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="top"
@@ -83,7 +82,7 @@
     </LinearLayout>
 
     <ListView
-        android:id="@+id/list"
+        android:id="@+id/addCustomer_list_vi_participant"
         android:layout_width="wrap_content"
         android:layout_height="320dp"
         android:layout_alignParentTop="true"
@@ -96,29 +95,29 @@
         android:scrollbars="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
+        app:layout_constraintTop_toBottomOf="@+id/LinearLayout">
 
     </ListView>
 
     <Button
-        android:id="@+id/button6"
+        android:id="@+id/addCustomer_bt_cancel"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:text="キャンセル"
-        app:layout_constraintEnd_toStartOf="@+id/button11"
+        app:layout_constraintEnd_toStartOf="@+id/addCustomer_bt_confirm"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/button11" />
+        app:layout_constraintTop_toTopOf="@+id/addCustomer_bt_confirm" />
 
     <Button
-        android:id="@+id/button11"
+        android:id="@+id/addCustomer_bt_confirm"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:layout_weight="1"
         android:text="確定"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/button6"
-        app:layout_constraintTop_toBottomOf="@+id/list" />
+        app:layout_constraintStart_toEndOf="@+id/addCustomer_bt_cancel"
+        app:layout_constraintTop_toBottomOf="@+id/addCustomer_list_vi_participant" />
 
 </android.support.constraint.ConstraintLayout>

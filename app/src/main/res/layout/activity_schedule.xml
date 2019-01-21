@@ -9,7 +9,7 @@
     <!-- 独自のビューをレイアウトに組み込む -->
     <view
         android:id="@+id/sv"
-        class="com.websarva.wings.android.bocian.activity.ScheduleCanvas"
+        class="com.websarva.wings.android.bocian.beans.ScheduleView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 </RelativeLayout>

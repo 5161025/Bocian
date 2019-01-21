@@ -18,7 +18,7 @@
         android:orientation="horizontal">
 
         <TextView
-            android:id="@+id/TextView"
+            android:id="@+id/newReservation_tv_lbl_date"
             android:layout_width="60dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
@@ -28,16 +28,16 @@
             android:text="年月日" />
 
         <TextView
-            android:id="@+id/textView4"
+            android:id="@+id/newReservation_tv_date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="8dp"
             android:layout_weight="0"
             android:inputType="textPersonName"
-            android:text="2018年9月3日" />
+            android:text="2018年12月10日" />
 
         <ImageView
-            android:id="@+id/imageView"
+            android:id="@+id/newReservation_img_vi_calendar"
             android:layout_width="32dp"
             android:layout_height="32dp"
             android:layout_marginLeft="16dp"
@@ -45,7 +45,6 @@
             app:srcCompat="@drawable/icon_calendar" />
 
         <TextView
-            android:id="@+id/textView8"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -53,7 +52,7 @@
             android:inputType="textPersonName" />
 
         <Switch
-            android:id="@+id/switch1"
+            android:id="@+id/newReservation_sw_reservation"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="0"
@@ -69,7 +68,7 @@
         android:orientation="horizontal">
 
         <TextView
-            android:id="@+id/textView5"
+            android:id="@+id/newReservation_tv_purpose"
             android:layout_width="60dp"
             android:layout_height="match_parent"
             android:layout_marginLeft="5dp"
@@ -79,7 +78,7 @@
             android:text="目的" />
 
         <Spinner
-            android:id="@+id/spinner7"
+            android:id="@+id/newReservation_spinar_porposeSpinner"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:entries="@array/目的"
@@ -98,7 +97,7 @@
         android:orientation="horizontal">
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/newReservation_tv_startTime"
             android:layout_width="60dp"
             android:layout_height="match_parent"
             android:layout_marginLeft="5dp"
@@ -106,7 +105,7 @@
             android:text="開始時刻" />
 
         <Spinner
-            android:id="@+id/spinner3"
+            android:id="@+id/newReservation_spinar_startHour"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="0"
@@ -114,6 +113,7 @@
             android:spinnerMode="dialog" />
 
         <TextView
+            android:id="@+id/newReservation_tv_startColon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="0"
@@ -123,7 +123,7 @@
             android:text=":" />
 
         <Spinner
-            android:id="@+id/spinner4"
+            android:id="@+id/newReservation_tv_startMinute"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="0"
@@ -131,7 +131,7 @@
             android:spinnerMode="dialog" />
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/newReservation_tv_endTime"
             android:layout_width="60dp"
             android:layout_height="match_parent"
             android:layout_marginLeft="16dp"
@@ -140,7 +140,7 @@
             android:text="終了時刻" />
 
         <Spinner
-            android:id="@+id/spinner6"
+            android:id="@+id/newReservation_spinar_endHour"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="0"
@@ -148,7 +148,7 @@
             android:spinnerMode="dialog" />
 
         <TextView
-            android:id="@+id/textView21"
+            android:id="@+id/newReservation_tv_endColon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="0"
@@ -157,7 +157,7 @@
             android:text=":" />
 
         <Spinner
-            android:id="@+id/spinner5"
+            android:id="@+id/newReservation_spinar_endMinute"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="0"
@@ -174,7 +174,7 @@
         android:orientation="horizontal">
 
         <TextView
-            android:id="@+id/TextView4"
+            android:id="@+id/newReservation_tv_conference"
             android:layout_width="60dp"
             android:layout_height="match_parent"
             android:layout_marginLeft="5dp"
@@ -183,7 +183,7 @@
             android:text="会議室" />
 
         <Spinner
-            android:id="@+id/spinner1"
+            android:id="@+id/newReservation_spinar_conferencePos"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:entries="@array/会議室"
@@ -200,7 +200,7 @@
         android:orientation="horizontal">
 
         <TextView
-            android:id="@+id/TextView9"
+            android:id="@+id/newReservation_tv_fixtures"
             android:layout_width="60dp"
             android:layout_height="match_parent"
             android:layout_marginLeft="5dp"
@@ -211,7 +211,7 @@
             android:text="備品" />
 
         <TextView
-            android:id="@+id/textView3"
+            android:id="@+id/newReservation_tv_fixturesSelecting"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -223,7 +223,6 @@
             android:textSize="20sp" />
 
         <TextView
-            android:id="@+id/textView7"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -231,7 +230,7 @@
             android:inputType="textPersonName" />
 
         <Button
-            android:id="@+id/button9"
+            android:id="@+id/newReservation_bt_fixturesConfirmation"
             android:layout_width="64dp"
             android:layout_height="48dp"
             android:layout_gravity="top|right"
@@ -241,7 +240,7 @@
             android:textSize="12sp" />
 
         <Button
-            android:id="@+id/button10"
+            android:id="@+id/newReservation_bt_fixturesAdd"
             android:layout_width="64dp"
             android:layout_height="48dp"
             android:layout_gravity="top|right"
@@ -260,7 +259,7 @@
         android:orientation="horizontal">
 
         <TextView
-            android:id="@+id/textView6"
+            android:id="@+id/newReservation_tv_paticipant"
             android:layout_width="60dp"
             android:layout_height="match_parent"
             android:layout_marginLeft="5dp"
@@ -271,7 +270,7 @@
             android:text="参加者" />
 
         <TextView
-            android:id="@+id/textView9"
+            android:id="@+id/newReservation_tv_paticipantSelecting"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -288,7 +287,7 @@
             android:layout_weight="1" />
 
         <Button
-            android:id="@+id/button7"
+            android:id="@+id/newReservation_bt_paticipantConfirmation"
             android:layout_width="64dp"
             android:layout_height="48dp"
             android:layout_gravity="top|right"
@@ -298,7 +297,7 @@
             android:textSize="12sp" />
 
         <Button
-            android:id="@+id/button5"
+            android:id="@+id/newReservation_bt_paticipantAdd"
             android:layout_width="64dp"
             android:layout_height="48dp"
             android:layout_gravity="top|right"
@@ -320,6 +319,7 @@
         android:scrollbars="horizontal|vertical">
 
         <EditText
+            android:id="@+id/newReservation_ed_tv_remarks"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -327,7 +327,6 @@
             android:hint="備考"
             android:scrollbars="horizontal"
             android:singleLine="false"
-            android:text="遅れずに。"
             android:textSize="18sp" />
     </LinearLayout>
 
@@ -340,13 +339,12 @@
         android:orientation="horizontal">
 
         <TextView
-            android:id="@+id/textView16"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1" />
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/newReservation_bt_Cancel"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:layout_weight="0"
@@ -354,13 +352,12 @@
             android:text="キャンセル" />
 
         <TextView
-            android:id="@+id/textView14"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1" />
 
         <Button
-            android:id="@+id/button4"
+            android:id="@+id/newReservation_bt_Confirm"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:layout_weight="0"
@@ -368,7 +365,6 @@
             android:text="確定" />
 
         <TextView
-            android:id="@+id/textView17"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1" />

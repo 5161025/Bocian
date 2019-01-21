@@ -7,7 +7,7 @@
     tools:context=".activity.EditCompanyActivity">
 
     <TextView
-        android:id="@+id/textView12"
+        android:id="@+id/editCompany_tv_company"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="24dp"
@@ -19,7 +19,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editText2"
+        android:id="@+id/editCompany_ed_tv_company"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="120dp"
@@ -27,22 +27,22 @@
         android:ems="10"
         android:inputType="text"
         android:text="株式会社API"
-        app:layout_constraintBottom_toBottomOf="@+id/textView12"
+        app:layout_constraintBottom_toBottomOf="@+id/editCompany_tv_company"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/textView12" />
+        app:layout_constraintTop_toTopOf="@+id/editCompany_tv_company" />
 
     <TextView
-        android:id="@+id/textView15"
+        android:id="@+id/editCompany_tv_outside"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:text="社外者"
         android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="@+id/button8"
+        app:layout_constraintBottom_toBottomOf="@+id/editCompany_img_tv_plus"
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageButton
-        android:id="@+id/button8"
+        android:id="@+id/editCompany_img_tv_plus"
         style="@style/buttonBarButtonStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -50,10 +50,10 @@
         android:background="@null"
         android:src="@drawable/add_parson"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText2" />
+        app:layout_constraintTop_toBottomOf="@+id/editCompany_ed_tv_company" />
 
     <ListView
-        android:id="@+id/list"
+        android:id="@+id/editCompany_list_vi_company"
         android:layout_width="match_parent"
         android:layout_height="320dp"
         android:layout_alignParentTop="true"
@@ -67,31 +67,30 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button8">
+        app:layout_constraintTop_toBottomOf="@+id/editCompany_img_tv_plus">
 
     </ListView>
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/editCompany_bt_Confirm"
         style="@style/buttonBarButtonStyle.Positive"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:text="確定"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/button2"
-        app:layout_constraintTop_toTopOf="@+id/button2" />
+        app:layout_constraintStart_toEndOf="@+id/editCompany_bt_Cancel"
+        app:layout_constraintTop_toTopOf="@+id/editCompany_bt_Cancel" />
 
     <Button
-        android:id="@+id/button2"
-        style="@style/buttonBarButtonStyle"
+        android:id="@+id/editCompany_bt_Cancel"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:layout_weight="1"
         android:text="キャンセル"
-        app:layout_constraintEnd_toStartOf="@+id/button4"
+        app:layout_constraintEnd_toStartOf="@+id/editCompany_bt_Confirm"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/list" />
+        app:layout_constraintTop_toBottomOf="@+id/editCompany_list_vi_company" />
 
 </android.support.constraint.ConstraintLayout>

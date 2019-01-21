@@ -21,7 +21,7 @@ public class EditCompanyDialogFragment extends DialogFragment {
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         // ダイアログビルダーを生成。
-        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity(), R.style.AlertDialogStyle);
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         //エディットテキストの生成
         EditText editText1 = new EditText(getActivity());
         EditText editText2 = new EditText(getActivity());
