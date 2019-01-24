@@ -31,6 +31,7 @@ import com.websarva.wings.android.bocian.data.EmployeeData;
 import com.websarva.wings.android.bocian.data.ExternalPersonsData;
 import com.websarva.wings.android.bocian.data.PositionData;
 import com.websarva.wings.android.bocian.listItem.AddCompanyListItem;
+import com.websarva.wings.android.bocian.listItem.AddCustomerListItem;
 import com.websarva.wings.android.bocian.listItem.AddEmployeeListItem;
 
 import org.w3c.dom.Text;
@@ -39,6 +40,7 @@ import java.io.Serializable;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
@@ -72,6 +74,9 @@ public class AddMemberActivity extends AppCompatActivity {
         division_spinar = findViewById(R.id.addMemberActivity_spinar_division); // 部署スピナー
         section_spinar = findViewById(R.id.addMemberActivity_spinar_section); // 課スピナー
 
+        // 前画面からデータの受け取り
+        ArrayList<Integer> empIdList = (ArrayList<Integer>) getIntent().getSerializableExtra("社内参加者リスト");
+        ArrayList<Integer> epIdList = (ArrayList<Integer>) getIntent().getSerializableExtra("社外参加者リスト");
         //helper.setDataList(db,null,null);
 
         // 社内
@@ -95,26 +100,36 @@ public class AddMemberActivity extends AppCompatActivity {
             AddEmployeeItem.setDivision(depName);
             AddEmployeeItem.setSection(secName);
             AddEmployeeItem.setPost(posName);
+            if (empIdList.parallelStream().filter(d -> d == emp.getEmpId()).findAny().orElse(_ONE) != _ONE) AddEmployeeItem.setChecked(true); //
             addEmployeeMap.get(emp.getDepId()).add(AddEmployeeItem); // インスタンスを課ごとのリストに挿入
         }
 
 
         // 会社
         List<CompanyData> cmpList = helper.getDataList(db, Constants.DB.tableCompany, null, null,null);
-        externalParticipantMap = new HashMap<>(); // 全ての部署・課ごとのリストを有するmap
+        List<ExternalPersonsData> epList = helper.getDataList(db, Constants.DB.tableExternalPersons, null, null,null);
+        externalParticipantMap = new HashMap<>(); // 全ての会社のリストを有するmap
         cmpList.forEach(t -> externalParticipantMap.put(t.getCompId() , new ArrayList<>())); // 鍵 -> 会社ID    データ -> ExternalPersonsDataインスタンス
+
         // 会社リストの作成
         addCompanyList = new ArrayList<>(); // アダプタのdata部分のリストを作成
         for (CompanyData cmp : cmpList){
             AddCompanyListItem addCompanyItem = new AddCompanyListItem();
+            // 会社が同一で参加している場合リストに追加
+            externalParticipantMap.put(cmp.getCompId(),
+                    epList.parallelStream().filter(d -> d.getCompanyId() == cmp.getCompId() && epIdList.contains(d.getExPersonsId())).map(t-> t.getExPersonsId()).collect(Collectors.toCollection(ArrayList::new)));
             addCompanyItem.setId((new Random()).nextLong());  // 別に乱数にしなくてもよい
             addCompanyItem.setCompanyId(cmp.getCompId());
             addCompanyItem.setName(cmp.getCompName());
-            addCompanyItem.setCount(""); // 予約画面から値が渡されてきていればセットする処理
+            if (!externalParticipantMap.get(cmp.getCompId()).isEmpty())
+                addCompanyItem.setCount(externalParticipantMap.get(cmp.getCompId()).size() + "人");  // 予約画面から値が渡されてきていればセットする処理
             addCompanyList.add(addCompanyItem); // インスタンスをリストに挿入
         }
 
-
+        // 選択人数の設定
+        TextView text = findViewById(R.id.addMemberActivity_tv_choice);
+        text.setText(externalParticipantMap.values().parallelStream().mapToInt(List::size).sum() +
+                addEmployeeMap.values().parallelStream().mapToLong(t -> t.parallelStream().filter(AddEmployeeListItem::isChecked).count()).sum() + "人選択中");
         // 初期リスト・アダプタの設定
         ListView listView = findViewById(R.id.addMemberActivity_list_vi_person); // レイアウト
         empAdapter = new AddEmployeeListAdapter(AddMemberActivity.this, addEmployeeMap.values().stream().findFirst().get(), R.layout.add_employee_list_item);
@@ -262,10 +277,9 @@ public class AddMemberActivity extends AppCompatActivity {
                 // 社内のアイテムを選択したとき
                 // 現在の参加者人数の表示を更新
                 switch (view.getId()){
-                    case R.id.checkbox:
-                        TextView text = findViewById(R.id.addMemberActivity_tv_choice);
-                        text.setText(externalParticipantMap.values().parallelStream().mapToInt(List::size).sum() +
-                                addEmployeeMap.values().parallelStream().mapToLong(t -> t.parallelStream().filter(AddEmployeeListItem::isChecked).count()).sum() + "人選択中");
+                case R.id.checkbox:
+                    text.setText(externalParticipantMap.values().parallelStream().mapToInt(List::size).sum() +
+                            addEmployeeMap.values().parallelStream().mapToLong(t -> t.parallelStream().filter(AddEmployeeListItem::isChecked).count()).sum() + "人選択中");
                 }
             }
         });
@@ -286,13 +300,18 @@ public class AddMemberActivity extends AppCompatActivity {
             Intent intent = new Intent();
 
             // 参加者リストの作成（社内）
-            HashMap<Integer ,List<Integer>> inParticipant = new HashMap<>();
-            for(Map.Entry<Integer, ArrayList<AddEmployeeListItem>> item : addEmployeeMap.entrySet()){
-                List<Integer> idList = item.getValue().parallelStream().filter(AddEmployeeListItem::isChecked).map(AddEmployeeListItem::getEmpId).collect(Collectors.toList());
-                if(idList.size() > ZERO) inParticipant.put(item.getKey(), idList);
-            }
+            ArrayList<Integer> inParticipant = new ArrayList<>();
+            for(Map.Entry<Integer, ArrayList<AddEmployeeListItem>> item : addEmployeeMap.entrySet())
+                item.getValue().parallelStream().filter(AddEmployeeListItem::isChecked).map(AddEmployeeListItem::getEmpId).forEach(t-> inParticipant.add(t));
+            // 参加企業リストの作成
+            ArrayList<Integer> externalParticipant = new ArrayList<>();
+            for (Iterator<Integer> i = externalParticipantMap.keySet().iterator(); i.hasNext();)
+                if (externalParticipantMap.get(i.next()).isEmpty())
+                    i.remove();
+            externalParticipantMap.values().parallelStream().forEach(i -> i.parallelStream().forEach(j -> externalParticipant.add(j)));
+
             intent.putExtra("社内参加者リスト", inParticipant);
-            intent.putExtra("社外参加者リスト", externalParticipantMap);
+            intent.putExtra("社外参加者リスト", externalParticipant);
             setResult(RESULT_OK, intent);
             finish();
         });

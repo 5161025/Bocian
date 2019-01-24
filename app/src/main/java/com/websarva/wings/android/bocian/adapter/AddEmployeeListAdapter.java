@@ -59,7 +59,7 @@ public class AddEmployeeListAdapter extends BaseAdapter {    // 自作のadapter
         final AddEmployeeListItem fitem = item;
         checkBox.setOnCheckedChangeListener((buttonView, isChecked) -> {
             fitem.setChecked(isChecked);
-            ((ListView) parent).performItemClick(buttonView, position, R.id.checkbox);
+            if(parent != null && parent.getClass() == ListView.class) ((ListView) parent).performItemClick(buttonView, position, R.id.checkbox);
         });
         checkBox.setChecked(item.isChecked());
         return convertView;

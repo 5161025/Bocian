@@ -12,18 +12,22 @@
         <!--予約延長画面-->
         <activity
             android:name="com.websarva.wings.android.bocian.activity.ExtensionActivity"
+            android:windowSoftInputMode="stateAlwaysHidden"
             android:label="@string/extensionActivity" />
         <!--利用履歴画面-->
         <activity
             android:name="com.websarva.wings.android.bocian.activity.UseHistoryActivity"
+            android:windowSoftInputMode="stateAlwaysHidden"
             android:label="@string/useHistoryActivity"></activity>
         <!--予約確認画面-->
         <activity
             android:name="com.websarva.wings.android.bocian.activity.BookingConActivity"
+            android:windowSoftInputMode="stateAlwaysHidden"
             android:label="@string/bookingConActivity"></activity>
         <!--予約確認画面（管理者）-->
         <activity
             android:name="com.websarva.wings.android.bocian.activity.AdminConActivity"
+            android:windowSoftInputMode="stateAlwaysHidden"
             android:label="@string/bookingConActivity"></activity>
         <!--ハンバーガーメニューテスト画面（テスト）-->
         <activity
@@ -33,11 +37,13 @@
         <!--スケジュール画面-->
         <activity
             android:name="com.websarva.wings.android.bocian.activity.ScheduleActivity"
+            android:windowSoftInputMode="stateAlwaysHidden"
             android:label="@string/scheduleActivity">
         </activity>
         <!--新規予約画面-->
         <activity
             android:name="com.websarva.wings.android.bocian.activity.NewReservationActivity"
+            android:windowSoftInputMode="stateAlwaysHidden"
             android:label="@string/new_reservation">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -47,26 +53,32 @@
         <!--参加者追加画面-->
         <activity
             android:name="com.websarva.wings.android.bocian.activity.AddMemberActivity"
+            android:windowSoftInputMode="stateAlwaysHidden"
             android:label="@string/add_member"></activity>
         <!--参加者追加画面（社外者）-->
         <activity
             android:name="com.websarva.wings.android.bocian.activity.AddCustomerActivity"
+            android:windowSoftInputMode="stateAlwaysHidden"
             android:label="@string/add_member"></activity>
         <!--会社編集画面-->
         <activity
             android:name="com.websarva.wings.android.bocian.activity.EditCompanyActivity"
+            android:windowSoftInputMode="stateAlwaysHidden"
             android:label="@string/edit_company" />
         <!--参加者確認画面-->
         <activity
             android:name="com.websarva.wings.android.bocian.activity.ParticipantsActivity"
+            android:windowSoftInputMode="stateAlwaysHidden"
             android:label="@string/participant"></activity>
         <!--備品確認画面-->
         <activity
             android:name="com.websarva.wings.android.bocian.activity.FixturesActivity"
+            android:windowSoftInputMode="stateAlwaysHidden"
             android:label="@string/fixtures"></activity>
         <!--編集企業選択画面-->
         <activity
             android:name="com.websarva.wings.android.bocian.activity.SelectedCompanyActivity"
+            android:windowSoftInputMode="stateAlwaysHidden"
             android:label="@string/selected_company">
         </activity>
     </application>

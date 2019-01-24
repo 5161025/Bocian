@@ -7,14 +7,17 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.Spinner;
 import android.widget.Switch;
+import android.widget.TextView;
 
 import com.websarva.wings.android.bocian.R;
 import com.websarva.wings.android.bocian.beans.BocianDBHelper;
 import com.websarva.wings.android.bocian.data.InParticipantData;
 import com.websarva.wings.android.bocian.data.ReserveData;
 import com.websarva.wings.android.bocian.fragment.AddFixturesDialogFragment;
+import com.websarva.wings.android.bocian.listItem.AddCompanyListItem;
 import com.websarva.wings.android.bocian.listItem.AddEmployeeListItem;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -23,6 +26,7 @@ import java.util.stream.Collectors;
 
 import static com.websarva.wings.android.bocian.beans.Constants.Num.ONE;
 import static com.websarva.wings.android.bocian.beans.Constants.Num.ZERO;
+import static com.websarva.wings.android.bocian.beans.Constants.Num._ONE;
 
 // 新規予約画面
 public class NewReservationActivity extends AppCompatActivity {
@@ -35,8 +39,8 @@ public class NewReservationActivity extends AppCompatActivity {
         // setTitle(R.string.edit_reservation);
 
         // nullにしておく
-        empIdList = null;
-        epIdList = null;
+        empIdList = new ArrayList<>();
+        epIdList = new ArrayList<>();
 
         // 備品確認画面を起動
         findViewById(R.id.newReservation_bt_fixturesConfirmation).setOnClickListener(view -> {
@@ -54,13 +58,17 @@ public class NewReservationActivity extends AppCompatActivity {
         // 参加者確認画面を起動
         findViewById(R.id.newReservation_bt_paticipantConfirmation).setOnClickListener(view -> {
             Intent intent = new Intent(NewReservationActivity.this, ParticipantsActivity.class);
+            intent.putExtra("社内参加者リスト",empIdList);
+            intent.putExtra("社外参加者リスト",epIdList);
             startActivity(intent);
         });
 
         // 参加者追加画面を起動
         findViewById(R.id.newReservation_bt_paticipantAdd).setOnClickListener(view -> {
             Intent intent = new Intent(NewReservationActivity.this, AddMemberActivity.class);
-            startActivity(intent);
+            intent.putExtra("社内参加者リスト",empIdList);
+            intent.putExtra("社外参加者リスト",epIdList);
+            startActivityForResult(intent, ZERO);
         });
 
 
@@ -69,7 +77,7 @@ public class NewReservationActivity extends AppCompatActivity {
 
         // この画面の終了（確定）
         findViewById(R.id.newReservation_bt_Confirm).setOnClickListener(view -> {
-            if (epIdList == null) {
+            if (false) {
             /*
             予約ID
             integer		予約ID			resId			（主キー）※1
@@ -128,8 +136,8 @@ public class NewReservationActivity extends AppCompatActivity {
             */
 
                 List<InParticipantData> InParticipantList = new ArrayList<>();
-                empIdList.stream().forEach(t ->
-                        InParticipantList.add(new InParticipantData(0, resId, t, 0))
+                empIdList.stream().forEach(d ->
+                        InParticipantList.add(new InParticipantData(0, resId, d, 0))
                 );
                 for (int i = 0; i < empIdList.size(); i++) {
 
@@ -148,7 +156,15 @@ public class NewReservationActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent intent) {
         super.onActivityResult(requestCode, resultCode, intent);
-        ArrayList<Integer> hoge = (ArrayList<Integer>) intent.getSerializableExtra("社内参加者リスト");
-        ArrayList<Integer> huga = (ArrayList<Integer>) intent.getSerializableExtra("社外参加者リスト");
+        if (resultCode == RESULT_OK) {
+            empIdList = (ArrayList<Integer>) intent.getSerializableExtra("社内参加者リスト");
+            epIdList = (ArrayList<Integer>) intent.getSerializableExtra("社外参加者リスト");
+
+            // 現在の参加者人数の表示を更新
+            TextView text = findViewById(R.id.newReservation_tv_paticipantSelecting);
+            text.setText((empIdList.size() + epIdList.size()) + "人選択中");
+            Log.d("empIdList", empIdList.toString());
+            Log.d("epIdList", epIdList.toString());
+        }
     }
 }

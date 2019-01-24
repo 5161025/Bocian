@@ -218,7 +218,7 @@
             android:layout_marginLeft="8dp"
             android:layout_weight="0"
             android:background="@android:color/holo_blue_dark"
-            android:text="4種選択中"
+            android:text="0種選択中"
             android:textColor="@android:color/background_light"
             android:textSize="20sp" />
 
@@ -277,7 +277,7 @@
             android:layout_marginLeft="8dp"
             android:layout_weight="0"
             android:background="@android:color/holo_orange_dark"
-            android:text="12人選択中"
+            android:text="0人選択中"
             android:textColor="@android:color/background_light"
             android:textSize="20sp" />
 
