@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.CheckBox;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -40,12 +41,16 @@ public class AddCustomerActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         // DBヘルパークラスの生成
         helper = new BocianDBHelper(this);
         db = helper.getReadableDatabase();
 
         setContentView(R.layout.activity_add_customer);
+
+        ImageButton imageButton = (ImageButton)findViewById(R.id.addCustomer_img_bt_add_to);
+        imageButton.setEnabled(false);
+        imageButton.setColorFilter(0xaaB0B0B0);
+
         // 前画面からデータの受け取り
         int cmpId = getIntent().getIntExtra("会社ID", _ONE);
         ArrayList<Integer> idList = (ArrayList<Integer>) getIntent().getSerializableExtra("参加者リスト");

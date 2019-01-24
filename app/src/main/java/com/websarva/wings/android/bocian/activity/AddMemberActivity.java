@@ -68,6 +68,10 @@ public class AddMemberActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_member);
 
+        ImageButton imageButton = (ImageButton)findViewById(R.id.addMemberActivity_img_bt_plus);
+        imageButton.setEnabled(false);
+        imageButton.setColorFilter(0xaaB0B0B0);
+
         // DBヘルパークラスの生成
         helper = new BocianDBHelper(this);
         db = helper.getReadableDatabase();
