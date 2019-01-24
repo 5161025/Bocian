@@ -5,8 +5,12 @@ import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.CheckBox;
+import android.widget.ImageButton;
+import android.widget.ListView;
 import android.widget.TextView;
 
+import com.websarva.wings.android.bocian.listItem.AddCustomerListItem;
 import com.websarva.wings.android.bocian.listItem.ParticipantsListItem;
 import com.websarva.wings.android.bocian.R;
 
@@ -50,6 +54,10 @@ public class ParticipantsListAdapter extends BaseAdapter {    // 自作のadapte
         }
         ((TextView)convertView.findViewById(R.id.name)).setText(item.getName());
         ((TextView)convertView.findViewById(R.id.post)).setText(item.getPost());
+        ImageButton delete = convertView.findViewById(R.id.delete);
+        delete.setOnClickListener((buttonView) -> {
+            if(parent != null && parent.getClass() == ListView.class) ((ListView) parent).performItemClick(buttonView, position, R.id.delete);
+        });
         return convertView;
     }
 }

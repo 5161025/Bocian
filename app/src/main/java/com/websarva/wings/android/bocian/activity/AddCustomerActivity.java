@@ -33,15 +33,17 @@ import static com.websarva.wings.android.bocian.beans.Constants.Num.*;
 
 // 参加者追加画面（社外者）
 public class AddCustomerActivity extends AppCompatActivity {
-
+    // DBヘルパークラス
+    private BocianDBHelper helper;
+    private SQLiteDatabase db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         // DBヘルパークラスの生成
-        BocianDBHelper helper = new BocianDBHelper(this);
-        SQLiteDatabase db = helper.getReadableDatabase();
+        helper = new BocianDBHelper(this);
+        db = helper.getReadableDatabase();
 
         setContentView(R.layout.activity_add_customer);
         // 前画面からデータの受け取り
@@ -111,5 +113,11 @@ public class AddCustomerActivity extends AppCompatActivity {
             setResult(RESULT_CANCELED, intent);
             finish();
         });
+    }
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        db.close();
+        helper.close();
     }
 }

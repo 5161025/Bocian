@@ -5,6 +5,8 @@ import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageButton;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import com.websarva.wings.android.bocian.listItem.FixturesListItem;
@@ -49,6 +51,14 @@ public class FixturesListAdapter extends BaseAdapter {
         }
         ((TextView)convertView.findViewById(R.id.name)).setText(item.getName());
         ((TextView)convertView.findViewById(R.id.count)).setText(item.getCount());
+        ImageButton edit = convertView.findViewById(R.id.edit);
+        edit.setOnClickListener((buttonView) -> {
+            if(parent != null && parent.getClass() == ListView.class) ((ListView) parent).performItemClick(buttonView, position, R.id.edit);
+        });
+        ImageButton delete = convertView.findViewById(R.id.delete);
+        delete.setOnClickListener((buttonView) -> {
+            if(parent != null && parent.getClass() == ListView.class) ((ListView) parent).performItemClick(buttonView, position, R.id.delete);
+        });
         return convertView;
     }
 }

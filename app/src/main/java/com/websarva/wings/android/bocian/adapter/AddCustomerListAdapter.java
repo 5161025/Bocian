@@ -55,12 +55,9 @@ public class AddCustomerListAdapter extends BaseAdapter {    // 自作のadapter
         ((TextView)convertView.findViewById(R.id.post)).setText(item.getPost());
         CheckBox checkBox = convertView.findViewById(R.id.checkbox);
         final AddCustomerListItem fitem = item;
-        checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                fitem.setChecked(isChecked);
-                ((ListView) parent).performItemClick(buttonView, position, R.id.checkbox);
-            }
+        checkBox.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            fitem.setChecked(isChecked);
+            ((ListView) parent).performItemClick(buttonView, position, R.id.checkbox);
         });
         checkBox.setChecked(item.isChecked());
         return convertView;

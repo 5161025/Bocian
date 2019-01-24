@@ -34,8 +34,6 @@ import com.websarva.wings.android.bocian.listItem.AddCompanyListItem;
 import com.websarva.wings.android.bocian.listItem.AddCustomerListItem;
 import com.websarva.wings.android.bocian.listItem.AddEmployeeListItem;
 
-import org.w3c.dom.Text;
-
 import java.io.Serializable;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
@@ -50,6 +48,10 @@ import static com.websarva.wings.android.bocian.beans.Constants.Num.*;
 
 // 社外者追加画面
 public class AddMemberActivity extends AppCompatActivity {
+
+    // DBヘルパークラス
+    private BocianDBHelper helper;
+    private SQLiteDatabase db;
 
     private boolean allCheck = false; // 全選択状態（チェックで切り替えた場合は異なる）
     private Spinner division_spinar; // 部署スピナー
@@ -67,8 +69,8 @@ public class AddMemberActivity extends AppCompatActivity {
         setContentView(R.layout.activity_add_member);
 
         // DBヘルパークラスの生成
-        BocianDBHelper helper = new BocianDBHelper(this);
-        SQLiteDatabase db = helper.getReadableDatabase();
+        helper = new BocianDBHelper(this);
+        db = helper.getReadableDatabase();
 
         // 初期設定
         division_spinar = findViewById(R.id.addMemberActivity_spinar_division); // 部署スピナー
@@ -356,5 +358,12 @@ public class AddMemberActivity extends AppCompatActivity {
             // アダプタの更新
             companyAdapter.notifyDataSetChanged();
         }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        db.close();
+        helper.close();
     }
 }
