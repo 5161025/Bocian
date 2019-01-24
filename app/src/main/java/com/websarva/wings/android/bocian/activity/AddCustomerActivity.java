@@ -106,6 +106,10 @@ public class AddCustomerActivity extends AppCompatActivity {
             finish();
         });
         // この画面の終了（キャンセル）
-        findViewById(R.id.addCustomer_bt_cancel).setOnClickListener(view -> { finish(); });
+        findViewById(R.id.addCustomer_bt_cancel).setOnClickListener(view -> {
+            Intent intent = new Intent();
+            setResult(RESULT_CANCELED, intent);
+            finish();
+        });
     }
 }
